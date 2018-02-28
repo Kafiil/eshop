@@ -4,6 +4,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -17,7 +18,18 @@ import { OrderSuccessComponent } from './components/order-success/order-success.
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
+import { LoginComponent } from './components/login/login.component';
 
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'shopping-cart', component: ShoppingCartComponent },
+  { path: 'my-orders', component: MyOrdersComponent },
+  { path: 'order-success', component: OrderSuccessComponent },
+  { path: 'admin/orders', component: AdminOrdersComponent },
+  { path: 'admin/products', component: AdminProductsComponent },
+  { path: 'login', component: LoginComponent },
+];
 
 @NgModule({
   declarations: [
@@ -30,10 +42,12 @@ import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orde
     OrderSuccessComponent,
     MyOrdersComponent,
     AdminProductsComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase), // init firebase
     AngularFireAuthModule, // for authorisation
