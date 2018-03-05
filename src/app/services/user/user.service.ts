@@ -12,7 +12,8 @@ export class UserService {
       name: user.displayName,
       email: user.email,
       photoUrl: user.photoURL,
-      lastLoggedInAt: new Date()
+      lastLoggedInAt: new Date(),
+      isAdmin: false
     });
   }
 
