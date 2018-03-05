@@ -1,8 +1,5 @@
-import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginService } from './../../services/login.service';
 import { Component } from '@angular/core';
-import * as firebase from 'firebase';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-navbar',
@@ -11,11 +8,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class NavbarComponent {
 
-  user$: Observable<firebase.User>;
 
-  constructor(private loginService: LoginService) {
-    this.user$ = loginService.user$;
-
+  constructor(public auth: LoginService) {
   }
 
   toggleNavigation() {
@@ -23,7 +17,7 @@ export class NavbarComponent {
   }
 
   logout() {
-    this.loginService.logOut();
+    this.auth.logOut();
   }
 
 

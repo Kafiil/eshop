@@ -33,3 +33,38 @@
 [debug] [2018-03-01T00:17:23.905Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/eshop-1234/uploads/-L6TuvhLV15wHsfd--sa?fileCount=12&message=  
   
  Thu Mar 01 2018 01:17:23 GMT+0100 (CET)
+[debug] [2018-03-05T21:10:11.171Z] ----------------------------------------------------------------------
+[debug] [2018-03-05T21:10:11.175Z] Command:       /usr/share/node/bin/node /usr/share/node/bin/firebase deploy
+[debug] [2018-03-05T21:10:11.175Z] CLI Version:   3.17.4
+[debug] [2018-03-05T21:10:11.175Z] Platform:      linux
+[debug] [2018-03-05T21:10:11.175Z] Node Version:  v9.4.0
+[debug] [2018-03-05T21:10:11.175Z] Time:          Mon Mar 05 2018 22:10:11 GMT+0100 (CET)
+[debug] [2018-03-05T21:10:11.175Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-05T21:10:11.210Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-05T21:10:11.210Z] > authorizing via signed-in user
+[debug] [2018-03-05T21:10:11.215Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-05T21:10:11.216Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/_DxLfFKeEEYj0OwI7eSSSzXFGlg8pZo5SPb-rBm28MQ',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Mar 05 2018 22:10:11 GMT+0100 (CET)
+[debug] [2018-03-05T21:10:12.342Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-05T21:10:12.351Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/eshop-1234  
+  
+ Mon Mar 05 2018 22:10:12 GMT+0100 (CET)
+[debug] [2018-03-05T21:10:14.110Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-05T21:10:14.112Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/eshop-1234/tokens  
+  
+ Mon Mar 05 2018 22:10:14 GMT+0100 (CET)
+[debug] [2018-03-05T21:10:15.589Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'eshop-1234'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2018-03-05T21:10:17.765Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/eshop-1234/uploads/-L6s-2m4B3T-Yvmoq1Lf?fileCount=12&message=  
+  
+ Mon Mar 05 2018 22:10:17 GMT+0100 (CET)
