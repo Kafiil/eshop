@@ -1,8 +1,5 @@
-import { LoginService } from './../../services/login.service';
+import { LoginService } from './../../services/login/login.service';
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
-import { GoogleAuthProvider } from '@firebase/auth-types';
 
 @Component({
   selector: 'app-login',
