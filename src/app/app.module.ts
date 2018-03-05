@@ -21,6 +21,7 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/login/login.service';
+import { UserService } from './services/user/user.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -55,7 +56,7 @@ const routes: Routes = [
     AngularFireAuthModule, // Authorisation
     AngularFireDatabaseModule // Database
   ],
-  providers: [LoginService, AuthGuard],
+  providers: [LoginService, UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
