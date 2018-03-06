@@ -22,6 +22,7 @@ import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orde
 import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/login/login.service';
 import { UserService } from './services/user/user.service';
+import { AdminGuard } from './services/admin-guard/admin-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,8 +31,8 @@ const routes: Routes = [
   { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
   { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
   { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
-  { path: 'admin/orders', component: AdminOrdersComponent },
-  { path: 'admin/products', component: AdminProductsComponent },
+  { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AdminGuard] },
+  { path: 'admin/products', component: AdminProductsComponent, canActivate: [AdminGuard] },
 ];
 
 @NgModule({
@@ -56,7 +57,7 @@ const routes: Routes = [
     AngularFireAuthModule, // Authorisation
     AngularFireDatabaseModule // Database
   ],
-  providers: [LoginService, UserService, AuthGuard],
+  providers: [LoginService, UserService, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
