@@ -1,13 +1,13 @@
-import { AppUser } from './../../models/AppUser';
-import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
-import { Injectable } from '@angular/core';
+import {AngularFireDatabase} from 'angularfire2/database';
+import {Injectable} from '@angular/core';
 import * as firebase from 'firebase';
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) {
+  }
 
   save(user: firebase.User) {
     this.db.object(`/users/${user.uid}`).update({
@@ -15,9 +15,13 @@ export class UserService {
       email: user.email,
       photoUrl: user.photoURL,
       lastLoggedInAt: new Date(),
-    });
+    })
+      .then((data: any) => {
+        console.log(data);
+      });
   }
-  get(uid: string): Observable<any> {
+
+  get(uid: string): Observable<firebase.User> {
     return this.db.object(`/users/${uid}`).valueChanges();
   }
 }
