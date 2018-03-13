@@ -1,5 +1,5 @@
-import { LoginService } from './../../services/login/login.service';
-import { Component } from '@angular/core';
+import {LoginService} from '../../services/login/login.service';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,17 +8,10 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
-
   constructor(public auth: LoginService) {
-  }
-
-  toggleNavigation() {
-    console.log('Should toggle naviation ');
   }
 
   logout() {
     this.auth.logOut();
   }
-
-
 }

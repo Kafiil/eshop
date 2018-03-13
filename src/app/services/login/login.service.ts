@@ -1,8 +1,8 @@
-import { Observable } from 'rxjs/Observable';
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
+import {Observable} from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from 'firebase';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Injectable()
 export class LoginService {
@@ -18,7 +18,7 @@ export class LoginService {
     localStorage.setItem('returnUrl', returnUrl);
     this.angularFireAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((res: any) => {
-        // console.log(res);
+        console.log(res);
       });
 
   }

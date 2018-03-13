@@ -1,7 +1,7 @@
-import { UserService } from './services/user/user.service';
-import { Router } from '@angular/router';
-import { LoginService } from './services/login/login.service';
-import { Component } from '@angular/core';
+import {UserService} from './services/user/user.service';
+import {Router} from '@angular/router';
+import {LoginService} from './services/login/login.service';
+import {Component} from '@angular/core';
 import * as firebase from 'firebase';
 
 @Component({
