@@ -1,8 +1,8 @@
-import {AngularFireDatabase} from 'angularfire2/database';
-import {Injectable} from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
-import {Observable} from 'rxjs/Observable';
-import {AppUser} from '../../models/AppUser';
+import { Observable } from 'rxjs/Observable';
+import { AppUser } from '../../models/AppUser';
 
 @Injectable()
 export class UserService {
@@ -18,7 +18,6 @@ export class UserService {
       lastLoggedInAt: new Date(),
     })
       .then((data: any) => {
-        console.log(data);
       });
   }
 
