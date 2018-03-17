@@ -1,3 +1,4 @@
+import { CategoryService } from '../../../../services/category/category.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductFormComponent implements OnInit {
 
-  constructor() { }
+  categories$: any;
+  constructor(private categoryService: CategoryService) {
+  }
 
   ngOnInit() {
+    this.categories$ = this.categoryService.getAll();
   }
 
 }

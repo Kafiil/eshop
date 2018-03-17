@@ -1,3 +1,4 @@
+import { CategoryService } from './services/category/category.service';
 import { AuthGuard } from './services/auth-guard/auth-guard.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -60,7 +61,7 @@ const routes: Routes = [
     AngularFireAuthModule, // Authorisation
     AngularFireDatabaseModule // Database
   ],
-  providers: [LoginService, UserService, AuthGuard, AdminGuard],
+  providers: [LoginService, CategoryService, UserService, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
