@@ -1,3 +1,4 @@
+import { Product } from './../../../models/Product';
 import { ProductService } from './../../../services/product/product.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,6 +15,10 @@ export class AdminProductsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  delete(productId: string) {
+    this.productService.delete(productId);
   }
 
 }

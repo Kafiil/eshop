@@ -14,6 +14,13 @@ export class ProductService {
   }
 
   getAll() {
-    return this.db.list(this.nodeName).valueChanges();
+    return this.db.list(this.nodeName).snapshotChanges()
+      .map(actions => {
+        return actions.map(action => ({ key: action.key, ...action.payload.val() }));
+      });
+  }
+
+  delete(productId: string) {
+    return this.db.list(this.nodeName).remove(productId);
   }
 }
