@@ -25,6 +25,8 @@ import { LoginService } from './services/login/login.service';
 import { UserService } from './services/user/user.service';
 import { AdminGuard } from './services/admin-guard/admin-guard.service';
 import { ProductFormComponent } from './components/admin/product-form/product-form/product-form.component';
+import { FormsModule } from '@angular/forms';
+import { ProductService } from './services/product/product.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -55,13 +57,14 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase), // Init firebase
     AngularFireAuthModule, // Authorisation
     AngularFireDatabaseModule // Database
   ],
-  providers: [LoginService, CategoryService, UserService, AuthGuard, AdminGuard],
+  providers: [LoginService, ProductService, CategoryService, UserService, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
