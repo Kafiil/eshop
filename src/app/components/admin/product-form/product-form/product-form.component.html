@@ -13,10 +13,11 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1">$</span>
       </div>
-      <input ngModel #price="ngModel" name="price" id="price" class="form-control" required>
+      <input ngModel #price="ngModel" name="price" id="price" class="form-control" required [min]="1">
     </div>
     <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
-      Price is required
+      <p *ngIf="price.errors?.required">Price is required</p>
+      <p *ngIf="price.errors?.min">Price should be at least 1</p>
     </div>
   </div>
 
@@ -34,9 +35,10 @@
 
   <div class="form-group">
     <label for="url">Image Url</label>
-    <input ngModel #url="ngModel" name="url" id="url" type="text" class="form-control" required>
+    <input ngModel #url="ngModel" name="url" id="url" type="text" class="form-control" required url>
     <div class="alert alert-danger" *ngIf="url.touched && url.invalid">
-      Image Url is required
+      <p *ngIf="url.errors?.required"> Image Url is required</p>
+      <p *ngIf="url.errors?.url"> The value entered is not a valid url</p>
     </div>
   </div>
 
