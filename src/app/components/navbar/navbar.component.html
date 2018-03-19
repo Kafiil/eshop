@@ -2,16 +2,14 @@
   <a class="navbar-brand" routerLink="/">
     <i class="fa fa-shopping-bag"> </i>Eshop</a>
 
-  <button (click)="toggleNavigation()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavigation()">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-      </li>
-      <li class="nav-item">
+      <li class="nav-item" (click)="toggleNavigation()">
         <a class="nav-link" routerLink="/shopping-cart">Cart</a>
       </li>
 
@@ -25,7 +23,7 @@
         <button class="btn btn-default" id="mainMenu" ngbDropdownToggle>
           {{appUser.name}}
         </button>
-        <div ngbDropdownMenu aria-labelledby="mainMenu">
+        <div ngbDropdownMenu aria-labelledby="mainMenu" (click)="toggleNavigation()">
           <button class="dropdown-item" routerLink="my/orders">My Orders</button>
           <ng-container *ngIf="appUser.isAdmin">
             <button class="dropdown-item" routerLink="admin/products">Manage products</button>

@@ -9,6 +9,8 @@ import { AppUser } from '../../models/AppUser';
 })
 export class NavbarComponent {
   appUser: AppUser;
+  isCollapsed = true;
+
 
   constructor(private auth: LoginService) {
     auth.appUser$.subscribe((user: AppUser) => {
@@ -21,6 +23,7 @@ export class NavbarComponent {
   }
 
   toggleNavigation() {
-    console.log('toggling display of navbar');
+    console.log('toggle navigation');
+    this.isCollapsed = !this.isCollapsed;
   }
 }
