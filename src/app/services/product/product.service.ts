@@ -27,6 +27,7 @@ export class ProductService {
   }
 
   delete(id: string) {
+    if (!id) { return; }
     return this.db.list(this.nodeName).remove(id);
   }
 

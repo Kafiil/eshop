@@ -54,7 +54,7 @@
           Cancel
         </button>
 
-        <button type="button" class="btn btn-outline-danger" (click)="delete()">
+        <button *ngIf="id" type="button" class="btn btn-outline-danger" (click)="delete()">
           <i class="fa fa-trash-o"></i>
           Delete
         </button>
