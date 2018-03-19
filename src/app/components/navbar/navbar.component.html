@@ -1,38 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
   <a class="navbar-brand" routerLink="/">
-    <i class="fa fa-shopping-bag"> </i>Eshop</a>
-
+    <i class="fa fa-shopping-bag mr-1"></i>Eshop</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavigation()">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" (click)="toggleNavigation()">
+    <ul class="navbar-nav mr-auto" (click)="toggleNavigation()">
+      <li class="nav-item">
         <a class="nav-link" routerLink="/shopping-cart">Cart</a>
       </li>
-
-      <ng-template #anonymous>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Login</a>
-        </li>
-      </ng-template>
-
-      <li *ngIf="appUser;else anonymous" ngbDropdown class="nav-item">
-        <button class="btn btn-default" id="mainMenu" ngbDropdownToggle>
-          {{appUser.name}}
-        </button>
-        <div ngbDropdownMenu aria-labelledby="mainMenu" (click)="toggleNavigation()">
-          <button class="dropdown-item" routerLink="my/orders">My Orders</button>
-          <ng-container *ngIf="appUser.isAdmin">
-            <button class="dropdown-item" routerLink="admin/products">Manage products</button>
-            <button class="dropdown-item" routerLink="admin/orders">Manage Orders</button>
-          </ng-container>
-          <button class="dropdown-item" (click)="logout()">Log Out</button>
-        </div>
+      <li class="nav-item" *ngIf="!appUser">
+        <a class="nav-link" routerLink="/login">Login</a>
       </li>
     </ul>
-
+    <div *ngIf="appUser" ngbDropdown class="nav-item">
+      <button class="btn btn-primary" id="mainMenu" ngbDropdownToggle>
+        <i class="fa fa-user-circle"></i> {{appUser.name}}
+      </button>
+      <div ngbDropdownMenu aria-labelledby="mainMenu" (click)="toggleNavigation()">
+        <button class="dropdown-item" routerLink="my/orders">My Orders</button>
+        <ng-container *ngIf="appUser.isAdmin">
+          <button class="dropdown-item" routerLink="admin/products">Manage products</button>
+          <button class="dropdown-item" routerLink="admin/orders">Manage Orders</button>
+        </ng-container>
+        <button class="dropdown-item" (click)="toggleNavigation();logout()">Log Out</button>
+      </div>
+    </div>
   </div>
 </nav>

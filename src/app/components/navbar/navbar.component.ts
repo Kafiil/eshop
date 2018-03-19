@@ -23,7 +23,6 @@ export class NavbarComponent {
   }
 
   toggleNavigation() {
-    console.log('toggle navigation');
     this.isCollapsed = !this.isCollapsed;
   }
 }
