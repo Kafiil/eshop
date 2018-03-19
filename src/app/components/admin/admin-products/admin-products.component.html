@@ -1,4 +1,4 @@
-<a routerLink="/admin/products/new" class="btn btn-primary">
+<a routerLink="/admin/products/new" class="btn btn-primary mb-2">
   <i class="fa fa-plus"></i>
   New product
 </a>
@@ -9,7 +9,7 @@
       <th>Name</th>
       <th>Category</th>
       <th>Price</th>
-      <th>Actions</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,10 +18,27 @@
       <td>{{p.category}}</td>
       <td>{{p.price}}</td>
       <td>
-        <a class="btn btn-danger" (click)="delete(p.key)">
+        <!-- <a class="btn btn-danger" (click)="delete(p.key)">
           <i class="fa fa-trash-o"></i>
-        </a>
+        </a> -->
+        <a [routerLink]="['/admin/products/', p.key]">Edit</a>
       </td>
     </tr>
   </tbody>
 </table>
+
+<!-- <div *ngIf="(products$|async)?.length">
+  <div class="container">
+    <div class="row">
+      <div class="col-4 mb-1" *ngFor="let p of products$ | async">
+        <div class="card">
+          <img class="card-img-top" src="{{p.url}}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{p.title}}</h4>
+            <p class="card-text">{{p.price | currency}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

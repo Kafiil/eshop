@@ -1,6 +1,7 @@
 import { Product } from './../../models/Product';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import { IPromise } from 'q';
 
 @Injectable()
 export class ProductService {
@@ -20,7 +21,16 @@ export class ProductService {
       });
   }
 
-  delete(productId: string) {
-    return this.db.list(this.nodeName).remove(productId);
+
+  getById(id: string) {
+    return this.db.object(`${this.nodeName}/${id}`).valueChanges();
+  }
+
+  delete(id: string) {
+    return this.db.list(this.nodeName).remove(id);
+  }
+
+  update(id: string, product: Product) {
+    return this.db.object(`${this.nodeName}/${id}`).update(product);
   }
 }
