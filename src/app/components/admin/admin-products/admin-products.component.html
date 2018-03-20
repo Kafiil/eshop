@@ -16,12 +16,18 @@
     <tr *ngFor="let p of products$ | async">
       <td scope="col">{{p.title}}</td>
       <td>{{p.category}}</td>
-      <td>{{p.price}}</td>
+      <td>{{p.price | currency}}</td>
       <td>
         <!-- <a class="btn btn-danger" (click)="delete(p.key)">
           <i class="fa fa-trash-o"></i>
         </a> -->
-        <a [routerLink]="['/admin/products/', p.key]">Edit</a>
+        <a [routerLink]="['/admin/products/', p.key]" class="btn btn-primary">
+          <i class="fa fa-pencil"> Edit</i>
+        </a>
+
+        <a (click)="delete(p.key)" class="btn btn-danger">
+          <i class="fa fa-trash"> Delete</i>
+        </a>
       </td>
     </tr>
   </tbody>

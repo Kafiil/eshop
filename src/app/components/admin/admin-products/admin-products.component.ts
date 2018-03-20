@@ -18,6 +18,7 @@ export class AdminProductsComponent implements OnInit {
   }
 
   delete(productId: string) {
+    if (!confirm('Are you sure you want to delete this item ? ')) { return; }
     this.productService.delete(productId);
   }
 
