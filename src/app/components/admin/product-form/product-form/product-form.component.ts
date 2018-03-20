@@ -39,7 +39,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   save(product: Product) {
-    if (this.product) {
+    if (this.id) {
       this.productService.update(this.id, this.product);
     } else { this.productService.create(product); }
     this.cancel();
