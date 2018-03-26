@@ -1,3 +1,6 @@
+import { ProductFilterComponent } from './components/product-filter/product-filter.component';
+import { NoProductComponent } from './components/no-product/no-product.component';
+import { ProductComponent } from './components/product/product.component';
 import { CategoryService } from './services/category/category.service';
 import { AuthGuard } from './services/auth-guard/auth-guard.service';
 import { AngularFireModule } from 'angularfire2';
@@ -30,19 +33,16 @@ import { FormsModule } from '@angular/forms';
 import { ProductService } from './services/product/product.service';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
   { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
   { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
   { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AdminGuard] },
-
-  { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AdminGuard] },
   { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AdminGuard] },
   { path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AdminGuard] },
-
   { path: 'admin/products', component: AdminProductsComponent, canActivate: [AdminGuard] },
+  { path: '', component: HomeComponent },
 ];
 
 @NgModule({
@@ -58,7 +58,10 @@ const routes: Routes = [
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductComponent,
+    NoProductComponent,
+    ProductFilterComponent
   ],
   imports: [
     CustomFormsModule,
