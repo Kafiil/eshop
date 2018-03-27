@@ -11,7 +11,6 @@ export class ProductService {
 
 
   create(product: Product) {
-    debugger;
     return this.db.list(this.nodeName).push(product);
   }
 
