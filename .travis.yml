@@ -15,11 +15,11 @@ before_script:
   - npm install -g firebase-tools
 
 script:
-  - ng build --prod --output-path dist --base-href eshop
+  - ng build --prod --output-path ghpages --base-href eshop
 
 after_success:
-  - cp dist/index.html dist/404.html
-  - firebase deploy --token $FIREBASE_TOKEN
+  - cp ghpages/index.html ghpages/404.html
+  - ng build --prod && firebase deploy --token $FIREBASE_TOKEN
 
 deploy:
   name : Kafil Nasdami
@@ -27,7 +27,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist
+  local_dir: ghpages
   # fqdn: www.kafil.xyz
   on:
     branch: develop
