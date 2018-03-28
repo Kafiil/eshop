@@ -1,3 +1,4 @@
+import { CartService } from './services/cart/cart.service';
 import { ProductFilterComponent } from './components/product-filter/product-filter.component';
 import { NoProductComponent } from './components/no-product/no-product.component';
 import { ProductComponent } from './components/product/product.component';
@@ -73,7 +74,7 @@ const routes: Routes = [
     AngularFireAuthModule, // Authorisation
     AngularFireDatabaseModule // Database
   ],
-  providers: [LoginService, ProductService, CategoryService, UserService, AuthGuard, AdminGuard],
+  providers: [LoginService, CartService, ProductService, CategoryService, UserService, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

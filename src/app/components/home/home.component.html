@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row">
         <div class="col-4 mb-4" *ngFor="let p of filteredProducts">
-          <app-product [product]="p"></app-product>
+          <app-product [cart]="cart" [product]="p"></app-product>
         </div>
       </div>
     </div>

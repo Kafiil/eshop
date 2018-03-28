@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart/cart.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Product } from './../../models/Product';
 import { CategoryService } from './../../services/category/category.service';
@@ -15,13 +16,20 @@ export class HomeComponent implements OnInit {
   category: string;
   products: Product[] = [];
   filteredProducts: Product[] = [];
+  cart: any;
   constructor(
     private productService: ProductService,
+    private cartService: CartService,
     private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
+
+    this.cartService.getCart().
+      subscribe(c => {
+        this.cart = c;
+      });
 
     this.productService.getAll()
       .switchMap(result => {

@@ -1,5 +1,7 @@
+import { Cart } from './../../models/cart';
+import { CartService } from './../../services/cart/cart.service';
 import { LoginService } from '../../services/login/login.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppUser } from '../../models/AppUser';
 
 @Component({
@@ -7,14 +9,29 @@ import { AppUser } from '../../models/AppUser';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+
   appUser: AppUser;
   isCollapsed = true;
+  cart: Cart;
+  totalItemCount = 0;
 
+  constructor(private auth: LoginService, private cartService: CartService) {
 
-  constructor(private auth: LoginService) {
-    auth.appUser$.subscribe((user: AppUser) => {
+  }
+
+  ngOnInit() {
+    this.auth.appUser$.subscribe((user: AppUser) => {
       this.appUser = user;
+    });
+
+    this.cartService.getCart().subscribe(c => {
+      this.cart = c;
+      if (!c) { return; }
+      this.totalItemCount = 0;
+      Object.keys(c.items).forEach(e => {
+        this.totalItemCount += c.items[e].quantity;
+      });
     });
   }
 
@@ -24,5 +41,14 @@ export class NavbarComponent {
 
   toggleNavigation() {
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  getTotalCount() {
+    if (!this.cart) { return; }
+
+    // Object.keys(this.cart.items).forEach(e => console.log(e));
+    console.log(Object.keys(this.cart.items).length);
+
+    // .reduce((a, b) => this.cart.items[a].quantity + this.cart.items[b].quantity, 0);
   }
 }
