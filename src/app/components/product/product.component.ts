@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
 
   getQuantity() {
     if (!this.cart) { return; }
-    const item: CartItem = this.cart.items[this.product.key];
+    const item: CartItem = this.cart.items.filter(i => i.key === this.product.key)[0];
     return item ? item.quantity : 0;
   }
 

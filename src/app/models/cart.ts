@@ -4,9 +4,16 @@ export class Cart {
 
     get totalItemCount() {
         let count = 0;
-        if (!this.items) { return 0; }
-        Object.keys(this.items).forEach(e => {
-            count += this.items[e].quantity;
+        this.items.forEach(e => {
+            count += e.quantity;
+        });
+        return count;
+    }
+
+    get totalPrice() {
+        let count = 0;
+        this.items.forEach(e => {
+            count += e.quantity * e.price;
         });
         return count;
     }

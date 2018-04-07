@@ -1,3 +1,4 @@
+import { CartItem } from './../../models/cartItem';
 import { Cart } from '../../models/cart';
 import { Observable } from 'rxjs/Observable';
 import { Product } from '../../models/Product';
@@ -19,7 +20,17 @@ export class CartService {
 
   getCart(): Observable<Cart> {
     const cartId = this.getOrCreateCartId();
-    return this.db.object('/carts/' + cartId).valueChanges() as Observable<Cart>;
+    return this.db.object('/carts/' + cartId).valueChanges()
+      .map((c: Cart) => {
+        // tslint:disable-next-line:prefer-const
+        let cart = new Cart();
+        if (c && c.items) {
+          const cartItems: CartItem[] = [];
+          Object.keys(c.items).forEach(e => cartItems.push(c.items[e] as CartItem));
+          cart.items = cartItems;
+        }
+        return cart;
+      });
   }
 
   private getOrCreateCartId(): string {
@@ -29,7 +40,7 @@ export class CartService {
     } else { return cartId; }
   }
 
-  createOrUpdateCart() {
+  createOrUpdateCartId() {
     let cartId = localStorage.getItem('cartId');
     if (!cartId) {
       this.create().then(r => {
@@ -42,7 +53,7 @@ export class CartService {
   }
 
   addToCart(product: Product, change: number): any {
-    const cartId = this.createOrUpdateCart();
+    const cartId = this.createOrUpdateCartId();
     const items$ = this.db.object(`/carts/${cartId}/items/${product.key}`);
     items$.valueChanges().take(1).subscribe((i: any) => {
       const quantity = i ? i.quantity + change : 1;
@@ -50,16 +61,10 @@ export class CartService {
     });
   }
 
-  // get TotalItemsCount() {
-  //   let count = 0;
-  //   this.getOrCreateCart().subscribe((c: any) => {
-  //     // console.log(Object.keys(c.items));
-  //     Object.keys(c.items).forEach(element => {
-  //       count += c.items[element].quantity;
-  //       return count;
-  //     });
-  //   });
-  // }
+  clear() {
+    const cartId = this.createOrUpdateCartId();
+    this.db.object(`/carts/${cartId}/items`).remove();
+  }
 
 
 }
