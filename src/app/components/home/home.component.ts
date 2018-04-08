@@ -1,3 +1,4 @@
+import { Cart } from './../../models/cart';
 import { CartService } from './../../services/cart/cart.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Product } from './../../models/Product';
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   category: string;
   products: Product[] = [];
   filteredProducts: Product[] = [];
-  cart: any;
+  cart: Cart;
   constructor(
     private productService: ProductService,
     private cartService: CartService,

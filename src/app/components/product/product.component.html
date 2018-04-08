@@ -10,19 +10,6 @@
     <p class="card-text">{{product.price | currency}}</p>
   </div>
   <div class="card-footer">
-    <button *ngIf="!getQuantity()" (click)="addToCart(product)" class="btn btn-primary btn-block">Add to cart</button>
-    <div *ngIf="getQuantity()" class="row">
-      <div class="col-4">
-        <button (click)="removeFromCart(product)" class="btn btn-primary btn-block">-</button>
-      </div>
-      <div class="col">
-        <p class="text-center">
-          {{getQuantity()}}
-        </p>
-      </div>
-      <div class="col-4">
-        <button (click)="addToCart(product)" class="btn btn-primary btn-block">+</button>
-      </div>
-    </div>
+    <app-product-quantity [product]="product" [cart]="cart"></app-product-quantity>
   </div>
 </div>

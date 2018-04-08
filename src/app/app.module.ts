@@ -32,6 +32,7 @@ import { AdminGuard } from './services/admin-guard/admin-guard.service';
 import { ProductFormComponent } from './components/admin/product-form/product-form/product-form.component';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from './services/product/product.service';
+import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -62,7 +63,8 @@ const routes: Routes = [
     ProductFormComponent,
     ProductComponent,
     NoProductComponent,
-    ProductFilterComponent
+    ProductFilterComponent,
+    ProductQuantityComponent
   ],
   imports: [
     CustomFormsModule,
