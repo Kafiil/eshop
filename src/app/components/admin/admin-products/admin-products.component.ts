@@ -9,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminProductsComponent implements OnInit {
 
-  products$: any;
+  products: Product[];
+  filteredProducts: Product[];
+
   constructor(private productService: ProductService) {
-    this.products$ = this.productService.getAll();
+    this.productService.getAll()
+      .subscribe(p => {
+        this.products = this.filteredProducts = p;
+      });
   }
 
   ngOnInit() {
@@ -21,5 +26,16 @@ export class AdminProductsComponent implements OnInit {
     if (!confirm('Are you sure you want to delete this item ? ')) { return; }
     this.productService.delete(productId);
   }
+
+  search(event: any) {
+    const value: string = event.target.value;
+    this.filteredProducts = this.products
+      .filter(p =>
+        p.category.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) > -1
+        ||
+        p.title.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) > -1);
+  }
+
+
 
 }
