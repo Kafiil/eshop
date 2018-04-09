@@ -27,13 +27,14 @@ export class AdminProductsComponent implements OnInit {
     this.productService.delete(productId);
   }
 
-  search(event: any) {
-    const value: string = event.target.value;
+  search(value: string) {
     this.filteredProducts = this.products
-      .filter(p =>
-        p.category.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) > -1
-        ||
-        p.title.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) > -1);
+      .filter(p => this.contains(p.category, value) || this.contains(p.title, value));
+  }
+
+
+  private contains(filter: string, value: string) {
+    return filter.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) > -1;
   }
 
 
