@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { CartItem } from './../../models/cartItem';
 import { Cart } from './../../models/cart';
 import { CartService } from './../../services/cart/cart.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,9 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  // total: number;
   items: CartItem[];
   cart: Cart;
+  @Input() readOnly: boolean;
   constructor(private cartService: CartService, private router: Router) {
   }
 

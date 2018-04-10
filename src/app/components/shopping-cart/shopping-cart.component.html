@@ -22,7 +22,7 @@
         <td></td>
         <td></td>
         <td>
-          <button class="btn btn-danger" (click)="clearCart()">
+          <button *ngIf="!readOnly" class="btn btn-danger" (click)="clearCart()">
             Clear cart
           </button>
         </td>
@@ -30,9 +30,11 @@
       </tr>
   </tbody>
 
-  <a routerLink="/check-out" class="btn btn-success btn-block">
-    CheckOut
-  </a>
+  <ng-container *ngIf="!readOnly">
+    <a routerLink="/check-out" class="btn btn-success btn-block">
+      CheckOut
+    </a>
+  </ng-container>
 
 </table>
 <ng-container *ngIf="!items?.length">
