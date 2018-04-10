@@ -29,6 +29,11 @@
         <td>Total: {{cart.totalPrice|currency}}</td>
       </tr>
   </tbody>
+
+  <a routerLink="/check-out" class="btn btn-success btn-block">
+    CheckOut
+  </a>
+
 </table>
 <ng-container *ngIf="!items?.length">
   No products in the shopping cart
