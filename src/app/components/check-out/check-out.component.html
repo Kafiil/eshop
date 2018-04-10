@@ -1,3 +1,45 @@
-<p>
-  check-out works!
-</p>
+<div class="row">
+  <div class="col-6">
+    <form (ngSubmit)="save(f.value)" #f="ngForm">
+      <div class="form-group">
+        <label for="name">name</label>
+        <input [(ngModel)]="f.name" #name="ngModel" name="name" id="name" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="address">address</label>
+        <input [(ngModel)]="f.address" #address="ngModel" name="address" id="address" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="zip">Zip Code</label>
+        <input [(ngModel)]="f.zip" #zip="ngModel" name="zip" id="zip" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="city">city</label>
+        <input [(ngModel)]="f.city" #city="ngModel" name="city" id="city" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="country">country</label>
+        <input [(ngModel)]="f.country" #country="ngModel" name="country" id="country" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="email">email</label>
+        <input [(ngModel)]="f.email" #email="ngModel" name="email" id="email" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">phone</label>
+        <input [(ngModel)]="f.phone" #phone="ngModel" name="phone" id="phone" class="form-control">
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="col-6">
+    <!-- <app-shopping-cart></app-shopping-cart> -->
+  </div>
+</div>

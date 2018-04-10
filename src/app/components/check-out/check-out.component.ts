@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-check-out',
@@ -11,6 +11,10 @@ export class CheckOutComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  save(form: any) {
+    console.log(form);
   }
 
 }
