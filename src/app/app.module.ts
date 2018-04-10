@@ -38,6 +38,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
   { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
+  { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
   { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
   { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
   { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AdminGuard] },
