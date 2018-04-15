@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7257130ddd0441bba333eba332115871)](https://www.codacy.com/app/kafil.nasdami/eshop?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Kafiil/eshop&amp;utm_campaign=Badge_Grade)
+
 # Eshop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
