@@ -25,6 +25,7 @@
         <i class="fa fa-user-circle"></i> {{appUser.name}}
       </button>
       <div ngbDropdownMenu aria-labelledby="mainMenu" (click)="toggleNavigation()">
+        <button class="dropdown-item" routerLink="profile">My Profile</button>
         <button class="dropdown-item" routerLink="my/orders">My Orders</button>
         <ng-container *ngIf="appUser.isAdmin">
           <button class="dropdown-item" routerLink="admin/products">Manage products</button>

@@ -1,19 +1,22 @@
-import { ProductFormComponent } from './components/admin/product-form/product-form.component';
-import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
-import { AdminGuard } from './services/admin-guard/admin-guard.service';
-import { OrderSuccessComponent } from './components/order-success/order-success.component';
-import { MyOrdersComponent } from './components/my-orders/my-orders.component';
-import { CheckOutComponent } from './components/check-out/check-out.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { AuthGuard } from './services/auth-guard/auth-guard.service';
-import { ProductsComponent } from './components/products/products.component';
-import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
 import { Routes } from '@angular/router';
+
+import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { ProductFormComponent } from './components/admin/product-form/product-form.component';
+import { CheckOutComponent } from './components/check-out/check-out.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { OrderSuccessComponent } from './components/order-success/order-success.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { AdminGuard } from './services/admin-guard/admin-guard.service';
+import { AuthGuard } from './services/auth-guard/auth-guard.service';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
+    { path: 'profile', component: ProfileComponent },
     { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
     { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
     { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },

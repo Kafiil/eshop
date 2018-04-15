@@ -1,0 +1,13 @@
+<div class="row" *ngIf="user$ | async as user">
+  <div class="col-sm"></div>
+  <div class="col-sm">
+    <div class="card">
+      <img class="card-img-top" [src]="user.photoUrl" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{user.name}}</h4>
+        <p class="card-text">Last logged in : {{user.lastLoggedInAt | date}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm"></div>
+</div>

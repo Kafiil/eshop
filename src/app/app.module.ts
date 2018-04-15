@@ -33,6 +33,7 @@ import { CategoryService } from './services/category/category.service';
 import { LoginService } from './services/login/login.service';
 import { ProductService } from './services/product/product.service';
 import { UserService } from './services/user/user.service';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -54,7 +55,8 @@ import { UserService } from './services/user/user.service';
     ProductComponent,
     NoProductComponent,
     ProductFilterComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    ProfileComponent
   ],
   imports: [
     CustomFormsModule,
